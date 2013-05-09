@@ -3,6 +3,7 @@
 
 """Sample Memento pattern rewritten from Java example, in a more Pythonic way."""
 
+
 class Originator(object):
 
     def __init__(self, initial_state=None):
@@ -26,6 +27,7 @@ class Originator(object):
     def __repr__(self):
         return "Originator: \t({})".format(self.state)
 
+
 class Memento(object):
 
     def __init__(self, state_to_save):
@@ -38,24 +40,25 @@ class Memento(object):
     def __repr__(self):
         return "Memento: \t({})".format(self.__state)
 
+
 if __name__ == "__main__":
 
-    saved_states = []
+    caretaker = []
 
     # Creating Originator
     originator = Originator("State1")
     # Let's set some states
     originator.state = "State2"
     # Saving this one for later...
-    saved_states.append(originator.save_to_memento())
+    caretaker.append(originator.save_to_memento())
     originator.state = "State3"
     # ...and this one too
-    saved_states.append(originator.save_to_memento())
+    caretaker.append(originator.save_to_memento())
     originator.state = "State4"
 
     # Restore the first saved state
-    originator.restore_from_memento(saved_states[0])
+    originator.restore_from_memento(caretaker[0])
 
     # We can also get the other one
-    originator.restore_from_memento(saved_states[1])
+    originator.restore_from_memento(caretaker[1])
 

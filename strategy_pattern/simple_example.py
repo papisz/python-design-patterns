@@ -6,12 +6,12 @@
 
 def triangle_area(base, height):
     u"""Calculate the area of a Δ."""
-    return 0.5*base*height
+    return 0.5 * base * height
 
 
 def parallelogram_area(base, height):
     u"""Calculate the area of a ▱."""
-    return base*height
+    return base * height
 
 
 class Shape(object):

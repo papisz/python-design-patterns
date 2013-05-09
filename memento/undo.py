@@ -5,6 +5,7 @@
 
 For more Pythonic approach see undo_prettier.py."""
 
+
 class Originator(object):
 
     def __init__(self, initial_state=None):
@@ -22,6 +23,7 @@ class Originator(object):
     def __repr__(self):
         return "Originator: \t({})".format(self.state)
 
+
 class Memento(object):
 
     def __init__(self, state_to_save):
@@ -33,24 +35,36 @@ class Memento(object):
     def __repr__(self):
         return "Memento: \t({})".format(self.__state)
 
+
+class Caretaker(object):
+
+    def __init__(self):
+        self.saved_states = []
+
+    def add_memento(self, memento):
+        self.saved_states.append(memento)
+
+    def get_memento(self, index):
+        return self.saved_states[index]
+
 if __name__ == "__main__":
 
-    saved_states = []
+    # Creating Caretaker
+    caretaker = Caretaker()
 
     # Creating Originator
     originator = Originator("State1")
     # Let's set some states
     originator.set("State2")
     # Saving this one for later...
-    saved_states.append(originator.save_to_memento())
+    caretaker.add_memento(originator.save_to_memento())
     originator.set("State3")
     # ...and this one too
-    saved_states.append(originator.save_to_memento())
+    caretaker.add_memento(originator.save_to_memento())
     originator.set("State4")
 
     # Restore the first saved state
-    originator.restore_from_memento(saved_states[0])
+    originator.restore_from_memento(caretaker.get_memento(0))
 
     # We can also get the other one
-    originator.restore_from_memento(saved_states[1])
-
+    originator.restore_from_memento(caretaker.get_memento(1))
