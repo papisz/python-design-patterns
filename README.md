@@ -12,3 +12,4 @@ Code inspirations
 -----------------
 1. Example Strategy pattern with knights rewritten from example in Java http://pl.wikisource.org/wiki/Strategia_(wzorzec_projektowy)/kod
 2. Example Memento pattern "undo" rewritten from example in Java http://en.wikipedia.org/wiki/Memento_pattern
+3. Creational patterns are modified examples from GoF
