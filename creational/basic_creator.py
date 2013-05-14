@@ -30,7 +30,7 @@ def create_maze():
 
 
 def play(maze, player):
-    print "\n--> Player", player.player_id, "enters the maze in room", player.current_room.room_number
+    print "\n--> Player {} enters the maze in room".format(player.player_id, player.current_room.room_number)
     room1 = player.current_room
     for side in Direction.ALL:
         print "\t{} SIDE: {}".format(side, room1.get_side(side))

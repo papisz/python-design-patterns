@@ -72,7 +72,7 @@ def create_maze(factory):
 
 
 def play_enchanted(maze, player):
-    print "\n---> Wizard", player.player_id, "enters the enchanted maze in room", player.current_room.room_number
+    print "\n---> Wizard {} enters the enchanted maze in room {}".format(player.player_id, player.current_room.room_number)
     room1 = player.current_room
     for side in Direction.ALL:
         print "\t{} SIDE: {}".format(side, room1.get_side(side))

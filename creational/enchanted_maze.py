@@ -25,7 +25,7 @@ class EnchantedRoom(Room):
 
     def enter(self, player):
         super(EnchantedRoom, self).enter(player)
-        print player.player_id, "is under the spell", self.spell
+        print "{} is under the spell {}".format(player.player_id, self.spell)
 
 
 class DoorNeedingSpell(Door):
